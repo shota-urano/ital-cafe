@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Orders Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Work Sans"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="font-display">
+<div class="relative flex h-screen min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-hidden">
+<div class="flex h-full w-full">
+<!-- SideNavBar -->
+<aside class="flex h-full w-64 shrink-0 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
+<div class="flex h-full min-h-0 flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Restaurant logo featuring a stylized ramen bowl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVF3Q9X62gRWAy9ZsQDgVJnEup4l7kvLqND-43GHQ8_ON6YExK1Ju6mxodgG8fnhHVYgktKzLyWBv7D9XYlIfNJnWvWyhuIyMlcTawTUdpe85julDIwE-XqGkY2wolkZ_VOh_A5LCRbfM8TOtMPJzWs7cIO13yonn5CVa5cKT1If_6eenDqGdQDP3WJ82rH9LLe9sGKzPm_XhM9vRY_yVNGelRaGNGRaG10tCCHGxQ3D8fVNxr0hlvb8oOzcLX42DnNuXHkEyZrCM4");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-medium leading-normal">Shibuya Ramen</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Admin Panel</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">restaurant_menu</span>
+<p class="text-sm font-medium leading-normal">Menu Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">event_seat</span>
+<p class="text-sm font-medium leading-normal">Reservations</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Analytics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col h-full overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-8 py-4 bg-white dark:bg-background-dark shrink-0">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Orders Dashboard</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqfUB1eCEThQ_TgWCfinmo5Rp3H0qdYNSb2z9EnDe7bm4-KPf_8y5ooCbkLV-To6UhhoqH73WxDCbrnLRm1bBdUIwQIW8QYDtB1XzXivDeYxkYpHDV4V_WfF-ZnyouyS9Ak5GBcdLmnY9CxbBBcMbm_DN0FjevEXNebJjhfwS2aEHquJJT5E2oSiZow4Tf5hsmeB8tEJAEvzpr7AKIwIQsk1TP66nEnJsQgGgtC60bvA3R2ljLAjpgQwGc73nC0RI5ULq93ofsoQEa");'></div>
+</div>
+</header>
+<!-- Kanban Board -->
+<div class="flex-1 overflow-x-auto p-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 min-w-[960px]">
+<!-- Unpaid Column -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">未清算 (Unpaid)</h2>
+<div class="flex items-center justify-center rounded-lg h-7 px-2.5 bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-300 text-sm font-bold">3</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 gap-3">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Order #1024 | Table 5 | ¥4,500</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Ramen x2, Gyoza x1, Asahi Beer x1</p>
+<div class="flex gap-2">
+<button class="flex flex-1 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-primary text-white text-xs font-bold">
+<span class="truncate">Mark as Paid</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+<details class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4 list-none">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Order #1025 | Table 2 | ¥2,800</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform text-xl">expand_more</span>
+</summary>
+<div class="border-t border-slate-200 dark:border-slate-800 pb-4">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal pt-3">Tonkotsu Ramen x1, Edamame x1, Sake x1</p>
+<div class="flex gap-2 mt-3">
+<button class="flex flex-1 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-primary text-white text-xs font-bold">
+<span class="truncate">Mark as Paid</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+</details>
+<div class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 gap-3">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Order #1026 | Takeaway | ¥1,200</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Spicy Miso Ramen x1</p>
+<div class="flex gap-2">
+<button class="flex flex-1 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-primary text-white text-xs font-bold">
+<span class="truncate">Mark as Paid</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Paid Column -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">支払済 (Paid)</h2>
+<div class="flex items-center justify-center rounded-lg h-7 px-2.5 bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-300 text-sm font-bold">2</div>
+</div>
+<div class="flex flex-col gap-3">
+<details class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4 list-none">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Order #1022 | Table 8 | ¥5,100</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform text-xl">expand_more</span>
+</summary>
+<div class="border-t border-slate-200 dark:border-slate-800 pb-4">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal pt-3">Shoyu Ramen x2, Karaage x1, Green Tea x2</p>
+<div class="flex gap-2 mt-3">
+<button class="flex flex-1 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-primary text-white text-xs font-bold">
+<span class="truncate">Mark as Served</span>
+</button>
+</div>
+</div>
+</details>
+<div class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 gap-3">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Order #1023 | Table 1 | ¥1,950</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Vegetarian Ramen x1, Gyoza x1</p>
+<div class="flex gap-2">
+<button class="flex flex-1 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-primary text-white text-xs font-bold">
+<span class="truncate">Mark as Served</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Served Column -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">提供済 (Served)</h2>
+<div class="flex items-center justify-center rounded-lg h-7 px-2.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-300 text-sm font-bold">4</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 gap-2 opacity-70">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Order #1018 | Table 3 | ¥3,300</p>
+<p class="text-slate-400 dark:text-slate-500 text-sm font-normal leading-normal">Ramen x1, Gyoza x1, Beer x2</p>
+</div>
+<div class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 gap-2 opacity-70">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Order #1019 | Takeaway | ¥1,300</p>
+<p class="text-slate-400 dark:text-slate-500 text-sm font-normal leading-normal">Shio Ramen x1, Onigiri x1</p>
+</div>
+<div class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 gap-2 opacity-70">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Order #1020 | Table 6 | ¥6,200</p>
+<p class="text-slate-400 dark:text-slate-500 text-sm font-normal leading-normal">Ramen x3, Karaage x2, Edamame x1</p>
+</div>
+<div class="flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 gap-2 opacity-70">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Order #1021 | Table 4 | ¥2,400</p>
+<p class="text-slate-400 dark:text-slate-500 text-sm font-normal leading-normal">Udon x1, Tempura x1</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

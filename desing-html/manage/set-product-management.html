@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Set Product - Restaurant Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "slate-50": "#f8fafc",
+              "slate-100": "#f1f5f9",
+              "slate-200": "#e2e8f0",
+              "slate-700": "#334155",
+              "slate-900": "#0f172a",
+              "blue-600": "#2563eb",
+            },
+            fontFamily: {
+              "display": ["Work Sans", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-64 flex-col border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-background-dark">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Restaurant logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCAdiSsRuqiF7UkiJU_nUWCkKwfCDzzQ97aciYEqqvkntiB7dfklZTdd5Rjt44hzrrM4yR8SBUUPJ7GSZ5q6FXHsZ7rc3aVuTpuoqaEwRDVHp4CyVB3W3MWxdx0tYAyFnfh4MphoMmQyAl-uaI7av9-UmRUN2CFNey_Of29GHpWJzGboUcurq6Ud6eSl-DXT7pYDCdOtHU7OA3qykpQBwhdjsOWWeQL2O0vfkAe718lmyQPgPpFpSUrnkO70eHIItk9KA2L1sAP4C_V");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-100 text-base font-bold leading-normal">Restaurant Admin</h1>
+<p class="text-slate-700 dark:text-slate-400 text-sm font-normal leading-normal">Management Panel</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 pt-4">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg bg-primary/20 px-3 py-2 text-primary dark:bg-primary/30 dark:text-white" href="#">
+<span class="material-symbols-outlined !font-bold">restaurant_menu</span>
+<p class="text-sm font-bold leading-normal">Set Products</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+</nav>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 bg-white px-6 py-3 dark:border-slate-800 dark:bg-background-dark sticky top-0 z-10">
+<div class="flex items-center gap-4 text-slate-900 dark:text-slate-100">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Create Set Product</h2>
+</div>
+<div class="flex items-center justify-end gap-4">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2AE5TMiZHvRtMv888Te1T8TF0qszQqvD9PjaSYbR7i0M8WdWW7BTfsJh8AMsvJnzzri1uYt9Juw2vTRLLy_Z6iKZZjSjYYXY6lNPTWvCmmg1m0WDo3fPDJH_4kBfAfmfoirIC_m83P9h98UET0DtE-jnlrnSTnx_GnoBtVPxqfb5Uc6obZjgqdThx7g3bfkC4f_iCeDwtmUQzVVKybrLSg0CfHPz_Ch2dgjm_ThwxKZVIPZrdIzFM78L5L_2aS9wfLlEsuxC9S-XD");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-6 lg:p-8">
+<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+<!-- Left Column: Form -->
+<div class="lg:col-span-2">
+<div class="flex flex-col gap-8">
+<!-- Main Form Card -->
+<div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+<div class="mb-6">
+<h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Set Details</h3>
+<p class="text-sm text-slate-700 dark:text-slate-400">Provide a name and the final price for the set.</p>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+<!-- Text Input: Set Name -->
+<div class="flex flex-col">
+<label class="pb-2 text-sm font-medium text-slate-900 dark:text-slate-200" for="set-name">Set Name</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-slate-200 bg-white p-3 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-500" id="set-name" placeholder="e.g., Lunch Special"/>
+</div>
+<!-- Number Input: Set Price -->
+<div class="flex flex-col">
+<label class="pb-2 text-sm font-medium text-slate-900 dark:text-slate-200" for="set-price">Set Price (Tax Included)</label>
+<div class="relative">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 dark:text-slate-500 sm:text-sm">$</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-slate-200 bg-white p-3 pl-7 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-500" id="set-price" placeholder="25.00" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Included Items Card -->
+<div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+<div class="mb-4">
+<h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Included Items</h3>
+<p class="text-sm text-slate-700 dark:text-slate-400">Select products to include in this set.</p>
+</div>
+<!-- Multi-select component -->
+<div class="flex flex-col gap-4">
+<div class="relative">
+<span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500">search</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-slate-200 bg-white p-3 pl-10 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-500" placeholder="Search for products to add..."/>
+</div>
+<div class="flex min-h-[48px] flex-wrap items-center gap-2 rounded-lg border border-dashed border-slate-300 p-2 dark:border-slate-700">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-primary/20 px-2.5 py-1 text-sm font-medium text-primary dark:bg-primary/30 dark:text-white">
+                                            Classic Burger
+                                            <button class="flex items-center justify-center rounded-full text-primary hover:bg-primary/20 dark:text-white dark:hover:bg-primary/50">
+<span class="material-symbols-outlined !text-base">close</span>
+</button>
+</span>
+<span class="inline-flex items-center gap-1.5 rounded-full bg-primary/20 px-2.5 py-1 text-sm font-medium text-primary dark:bg-primary/30 dark:text-white">
+                                            Fries
+                                            <button class="flex items-center justify-center rounded-full text-primary hover:bg-primary/20 dark:text-white dark:hover:bg-primary/50">
+<span class="material-symbols-outlined !text-base">close</span>
+</button>
+</span>
+<span class="inline-flex items-center gap-1.5 rounded-full bg-primary/20 px-2.5 py-1 text-sm font-medium text-primary dark:bg-primary/30 dark:text-white">
+                                            Soda
+                                            <button class="flex items-center justify-center rounded-full text-primary hover:bg-primary/20 dark:text-white dark:hover:bg-primary/50">
+<span class="material-symbols-outlined !text-base">close</span>
+</button>
+</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex justify-end gap-3">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 bg-white text-slate-700 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-6 border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 dark:hover:bg-slate-700">Cancel</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 bg-blue-600 text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-6 hover:bg-blue-600/90">Save Set</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Preview -->
+<div class="lg:col-span-1">
+<div class="sticky top-24 rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+<h3 class="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">Set Preview</h3>
+<div class="space-y-6">
+<div>
+<p class="mb-1 text-sm font-medium text-slate-700 dark:text-slate-400">Set Name</p>
+<p class="text-lg font-semibold text-slate-900 dark:text-slate-100">Lunch Special</p>
+</div>
+<hr class="border-slate-200 dark:border-slate-800"/>
+<div>
+<p class="mb-3 text-sm font-medium text-slate-700 dark:text-slate-400">Included Items (3)</p>
+<ul class="space-y-2 text-slate-700 dark:text-slate-300">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-slate-400 dark:text-slate-500">check_circle</span>
+<span>Classic Burger</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-slate-400 dark:text-slate-500">check_circle</span>
+<span>Fries</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-slate-400 dark:text-slate-500">check_circle</span>
+<span>Soda</span>
+</li>
+</ul>
+</div>
+<hr class="border-slate-200 dark:border-slate-800"/>
+<div>
+<p class="mb-1 text-sm font-medium text-slate-700 dark:text-slate-400">Final Price</p>
+<p class="text-4xl font-black text-primary dark:text-primary">$25.00</p>
+</div>
+<div class="hidden">
+<p class="text-center text-slate-400 dark:text-slate-500">Add products to see a preview</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

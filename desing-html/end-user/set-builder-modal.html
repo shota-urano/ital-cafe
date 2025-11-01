@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Build Your Lunch Combo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+      /* Custom radio button dot color */
+      .form-radio:checked {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%2313ec5b' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec5b",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102216",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col bg-[#112217] dark">
+<!-- Top App Bar -->
+<header class="flex items-center bg-[#112217] p-4 pb-2 justify-between sticky top-0 z-10">
+<button class="text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Build Your Lunch Combo</h1>
+<div class="flex w-12 items-center justify-end">
+<p class="text-[#92c9a4] text-base font-bold leading-normal tracking-[0.015em] shrink-0 text-right">Starts at $12.99</p>
+</div>
+</header>
+<main class="flex flex-col p-4 gap-3 flex-grow">
+<!-- Accordions for Combo Options -->
+<details class="flex flex-col rounded-xl border border-[#326744] bg-[#112217] px-4 group" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-3">
+<div class="flex items-center gap-2">
+<p class="text-white font-medium leading-normal">Choose your Drink</p>
+<span class="text-[#92c9a4] text-xs font-medium">[Required]</span>
+<span class="material-symbols-outlined text-primary text-base ml-1">check_circle</span>
+</div>
+<span class="material-symbols-outlined text-white group-open:rotate-180 transition-transform duration-200">expand_more</span>
+</summary>
+<div class="pb-4">
+<!-- RadioList for Drink Options -->
+<div class="flex flex-col gap-3">
+<label class="flex cursor-pointer items-center gap-4 rounded-xl border border-solid border-primary bg-primary/10 p-4">
+<div class="flex grow flex-col">
+<p class="text-white font-medium leading-normal">Latte</p>
+<p class="text-[#92c9a4] text-sm font-normal leading-normal">+$0.50</p>
+</div>
+<input checked="" class="form-radio h-5 w-5 border-2 border-[#326744] bg-transparent text-transparent checked:border-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="drink-option" type="radio"/>
+</label>
+<label class="flex cursor-pointer items-center gap-4 rounded-xl border border-solid border-[#326744] p-4">
+<div class="flex grow flex-col">
+<p class="text-white font-medium leading-normal">Americano</p>
+<p class="text-[#92c9a4] text-sm font-normal leading-normal">Included</p>
+</div>
+<input class="form-radio h-5 w-5 border-2 border-[#326744] bg-transparent text-transparent checked:border-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="drink-option" type="radio"/>
+</label>
+<label class="flex cursor-pointer items-center gap-4 rounded-xl border border-solid border-[#326744] p-4">
+<div class="flex grow flex-col">
+<p class="text-white font-medium leading-normal">Orange Juice</p>
+<p class="text-[#92c9a4] text-sm font-normal leading-normal">+$1.00</p>
+</div>
+<input class="form-radio h-5 w-5 border-2 border-[#326744] bg-transparent text-transparent checked:border-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="drink-option" type="radio"/>
+</label>
+</div>
+</div>
+</details>
+<details class="flex flex-col rounded-xl border border-[#326744] bg-[#112217] px-4 group">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-3">
+<div class="flex items-center gap-2">
+<p class="text-white font-medium leading-normal">Choose your Side</p>
+<span class="text-[#92c9a4] text-xs font-medium">[Required]</span>
+</div>
+<span class="material-symbols-outlined text-white group-open:rotate-180 transition-transform duration-200">expand_more</span>
+</summary>
+<div class="pb-4">
+<!-- Placeholder for Side Options -->
+<p class="text-[#92c9a4] text-sm font-normal leading-normal pt-2">A list of available sides like croissants, muffins, or sandwiches will be displayed here.</p>
+</div>
+</details>
+<details class="flex flex-col rounded-xl border border-[#326744] bg-[#112217] px-4 group">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-3">
+<div class="flex items-center gap-2">
+<p class="text-white font-medium leading-normal">Add a Dessert</p>
+<span class="text-[#92c9a4] text-xs font-medium">[Optional]</span>
+</div>
+<span class="material-symbols-outlined text-white group-open:rotate-180 transition-transform duration-200">expand_more</span>
+</summary>
+<div class="pb-4">
+<!-- Placeholder for Dessert Options -->
+<p class="text-[#92c9a4] text-sm font-normal leading-normal pt-2">A list of available desserts like cakes or cookies will be displayed here.</p>
+</div>
+</details>
+</main>
+<!-- Sticky Footer with Button Group -->
+<footer class="sticky bottom-0 bg-[#112217] border-t border-[#326744] px-4 py-3">
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="text-[#92c9a4] text-sm">Set Total</span>
+<span class="text-white text-xl font-bold leading-normal">$13.49</span>
+</div>
+<button class="flex flex-1 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-primary text-[#112217] text-base font-bold leading-normal tracking-[0.015em] disabled:opacity-50 disabled:cursor-not-allowed">
+<span class="truncate">Add to Cart</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

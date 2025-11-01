@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Admin - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "success": "#22c55e",
+            },
+            fontFamily: {
+              "display": ["Work Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="flex-shrink-0 w-64 bg-white dark:bg-background-dark border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="flex h-full min-h-[700px] flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex gap-3 items-center px-3 py-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Restaurant logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhDOMpJeXdBVfGkyknozTMyj0PpSrbj_bFz0j7SYKvfk-9-kOHlfSXzwbxIxIXnhFvHVG_ufcOZvJVncCwGubOUHsuCiY8egY6rv2aXo6gB2dA_nD8DAOhyc-nCLE303M_N3gGjMiUtZEfeFqfPbP0MzuEH4fn-0qHb4gbQgqPVR6hKFdHvhakOmCSwocUnPsK_S3qp9oxoa4pFhQdf_HA3AwORdSmqQIdgnVDmA1NRQJDlzJxunwRSnX494-2IGV2W6xUks6ksm8Q");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-medium leading-normal">Restaurant Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Management</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-slate-800 dark:text-slate-200">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-slate-800 dark:text-slate-200">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-slate-800 dark:text-slate-200">restaurant_menu</span>
+<p class="text-sm font-medium leading-normal">Menu Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-slate-800 dark:text-slate-200">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Analytics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary dark:bg-primary/30 dark:text-primary-300" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-slate-800 dark:text-slate-200">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex-shrink-0 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-4 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Settings</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<button class="flex cursor-pointer items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVuvaADfEfzV8CeMrvBA0CSq1tYR02NQBht34sbs4wuBn7T7ZG9SlpfJEiD2140poDW_pT2cXtkyAprNTfV8ILy8oeQ6ke2SCH2ucVmJ11WlsvYWmtSi9dtJKaBJCM3Ex7S8vENA4Sh3CdPYW-VOmh4lJbfZ7LvSNwFn9aqgW0Fy2TWHtS1Cwo7hZzp4fsvXEwM2S8nAmGAbXwnmkp6No-314fCglhtd02EL4SlGK6qnDCcHORpx1MtnfNcGRdv76lvRbe-MikYCnp");'></div>
+<div class="flex flex-col text-sm">
+<p class="font-semibold text-slate-800 dark:text-slate-200">John Doe</p>
+<p class="text-slate-500 dark:text-slate-400">Admin</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 p-6 lg:p-10 overflow-y-auto">
+<div class="max-w-4xl mx-auto space-y-8">
+<!-- LINE Notify Section -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">LINE Notify Integration</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal pt-1 pb-4">Enter your token to receive order notifications via LINE.</p>
+<div class="max-w-md">
+<label class="flex flex-col w-full">
+<p class="text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal pb-2">LINE Notify Token</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 p-[15px] text-base font-normal leading-normal" placeholder="Enter your token here" value=""/>
+</label>
+</div>
+</div>
+<!-- Business Hours Section -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Business Hours Enforcement</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal pt-1">Enforce online ordering only during business hours.</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal pt-1 max-w-2xl">When enabled, customers can only place orders during the hours specified below. When disabled, ordering is available 24/7.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/80 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 mt-6 pt-6 space-y-4">
+<!-- Day Row -->
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-4 items-center">
+<p class="text-slate-800 dark:text-slate-200 font-medium">Monday</p>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="09:00"/>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="22:00"/>
+<label class="flex items-center gap-2 justify-end text-slate-600 dark:text-slate-400">
+<input class="form-checkbox rounded text-primary focus:ring-primary/50 border-slate-300 dark:border-slate-700 dark:bg-slate-800" type="checkbox"/>
+                                        Closed
+                                    </label>
+</div>
+<!-- Day Row -->
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-4 items-center">
+<p class="text-slate-800 dark:text-slate-200 font-medium">Tuesday</p>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="09:00"/>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="22:00"/>
+<label class="flex items-center gap-2 justify-end text-slate-600 dark:text-slate-400">
+<input class="form-checkbox rounded text-primary focus:ring-primary/50 border-slate-300 dark:border-slate-700 dark:bg-slate-800" type="checkbox"/>
+                                        Closed
+                                    </label>
+</div>
+<!-- Repeat for other days... -->
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-4 items-center">
+<p class="text-slate-800 dark:text-slate-200 font-medium">Wednesday</p>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="09:00"/>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="22:00"/>
+<label class="flex items-center gap-2 justify-end text-slate-600 dark:text-slate-400">
+<input class="form-checkbox rounded text-primary focus:ring-primary/50 border-slate-300 dark:border-slate-700 dark:bg-slate-800" type="checkbox"/>
+                                        Closed
+                                    </label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-4 items-center">
+<p class="text-slate-800 dark:text-slate-200 font-medium">Thursday</p>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="09:00"/>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="23:00"/>
+<label class="flex items-center gap-2 justify-end text-slate-600 dark:text-slate-400">
+<input class="form-checkbox rounded text-primary focus:ring-primary/50 border-slate-300 dark:border-slate-700 dark:bg-slate-800" type="checkbox"/>
+                                        Closed
+                                    </label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-4 items-center">
+<p class="text-slate-800 dark:text-slate-200 font-medium">Friday</p>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="09:00"/>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="23:00"/>
+<label class="flex items-center gap-2 justify-end text-slate-600 dark:text-slate-400">
+<input class="form-checkbox rounded text-primary focus:ring-primary/50 border-slate-300 dark:border-slate-700 dark:bg-slate-800" type="checkbox"/>
+                                        Closed
+                                    </label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-4 items-center">
+<p class="text-slate-800 dark:text-slate-200 font-medium">Saturday</p>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="10:00"/>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36" type="time" value="00:00"/>
+<label class="flex items-center gap-2 justify-end text-slate-600 dark:text-slate-400">
+<input class="form-checkbox rounded text-primary focus:ring-primary/50 border-slate-300 dark:border-slate-700 dark:bg-slate-800" type="checkbox"/>
+                                        Closed
+                                    </label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-4 items-center">
+<p class="text-slate-800 dark:text-slate-200 font-medium">Sunday</p>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36 disabled:bg-slate-100 dark:disabled:bg-slate-800" disabled="" type="time" value="10:00"/>
+<input class="form-input rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary/50 focus:border-primary text-slate-800 dark:text-slate-200 w-36 disabled:bg-slate-100 dark:disabled:bg-slate-800" disabled="" type="time" value="22:00"/>
+<label class="flex items-center gap-2 justify-end text-slate-600 dark:text-slate-400">
+<input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50 border-slate-300 dark:border-slate-700 dark:bg-slate-800" type="checkbox"/>
+                                        Closed
+                                    </label>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex justify-end pt-4">
+<button class="flex items-center justify-center rounded-lg h-12 bg-primary text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 px-6 hover:bg-primary/90 focus:outline-none focus:ring-4 focus:ring-primary/30 disabled:bg-slate-300 dark:disabled:bg-slate-700 dark:disabled:text-slate-500 disabled:cursor-not-allowed">
+                                Save Changes
+                            </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Success Toast -->
+<div class="absolute top-6 right-6 flex items-center w-full max-w-xs p-4 space-x-4 rtl:space-x-reverse text-green-800 bg-green-100 rounded-lg shadow dark:text-green-300 dark:bg-green-900/50" role="alert">
+<div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-200 rounded-lg dark:bg-green-800 dark:text-green-200">
+<span class="material-symbols-outlined">check</span>
+</div>
+<div class="ms-3 text-sm font-medium">Success! Your settings have been updated.</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cart Summary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec5b",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102216",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center bg-background-light/80 p-4 pb-3 dark:bg-background-dark/80 backdrop-blur-sm">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full text-white">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold leading-tight tracking-tight text-white pr-10">Your Cart</h1>
+</header>
+<main class="flex-1 px-4 py-2">
+<div class="flex flex-col gap-4">
+<!-- List Item 1: Simple Item with Toppings -->
+<div class="flex flex-col gap-3 rounded-xl bg-white/5 p-4">
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-1 items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 shrink-0" data-alt="A cup of latte coffee with foam art" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4kHBGYZKKeLa_CTyHp9b8WnDLGCgm9dFOvENYkSlROHYPJG4EdzVu4RjsyWv2PgJgRFkC4-fM1vqViOkyikA8jfVYvsBZq8EmlNHqAZNjdygwPwIsh-t1ZoNdlo6e_TCmvsifNSMhk-aPu6grOuGae7QxkbBpaiQQ0vjygm9Qe3z8axLw0EDNgH3LMshYcW6FP2Pr5ZH3A5Mc3qNB7qBEitXPv7ApZogIWFtuNvWX236u5shZd66x19nsNXc5AHSvWbGGNn5zLg0f");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-base font-medium leading-normal">Latte</p>
+<p class="text-[#92c9a4] text-sm font-normal leading-normal">Extra Shot, Oat Milk</p>
+</div>
+</div>
+<div class="shrink-0">
+<p class="text-white text-base font-medium leading-normal">$5.50</p>
+</div>
+</div>
+</div>
+<!-- List Item 2: Set Item with Children -->
+<div class="flex flex-col gap-3 rounded-xl bg-white/5 p-4">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-1 items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 shrink-0" data-alt="A breakfast set with croissant and juice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUNWMzsVKkhJ41vYGF5CYx8mGlIRgSKoyLvSvtx7zXNI5AnmNiz-04oZxFXaNDfykWKAENyk8SLX597A2upNSz_kFsBG2WLNIm9YHbyf5tKF6K3TmMkXg9vEUpdo8BodeuLKjm1JulnXo8cuVOpUa8H0nKCvdYZ4b3cFHIvoB1de_0hWCv-9aV1GWnHi821iP260LaH_CVbfWgKyERTDnkYdCw8TICNdF5fjXXLExxySe9PcuQRAQ4T7DfzY4Rp186fnZHC81F0S5J");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-white text-base font-medium leading-normal">Breakfast Set</p>
+<p class="text-[#92c9a4] text-sm font-normal leading-normal">Includes one pastry and one drink</p>
+</div>
+</div>
+<div class="shrink-0">
+<p class="text-white text-base font-medium leading-normal">$8.00</p>
+</div>
+</div>
+<div class="pl-[72px] flex flex-col gap-2 pt-2 border-t border-white/10">
+<div class="flex justify-between items-center text-sm">
+<p class="text-gray-300">Croissant</p>
+</div>
+<div class="flex justify-between items-center text-sm">
+<p class="text-gray-300">Orange Juice</p>
+</div>
+</div>
+</div>
+<!-- List Item 3: Simple Item -->
+<div class="flex flex-col gap-3 rounded-xl bg-white/5 p-4">
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-1 items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 shrink-0" data-alt="A freshly baked blueberry muffin" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCzdebepcr6OJ9izEaXq92rAiDMq8P3dyYmrHebTdD0QM6Mx4RDwYi2MEMnuOszosDRhGZPFrAb2-vo4E0WUpJHNq6IfId1yn_i2Ln66euVYft13hPQ9a9i6hSckcaQ9_UVbJjbS9S_sw1rB2RG8PGTSCJNEEAwbjsMILFRsP7eoGMgGdpqFeOoVFLeG-DYIBKtGaxCQgPn2QJVuiaXaJkjD-8oR0vq5vSKfZgpB9Mq-1fTa0aM4HKHrGd-1doL0wc2NN_Ryd8FYgZ4");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-base font-medium leading-normal">Blueberry Muffin</p>
+</div>
+</div>
+<div class="shrink-0">
+<p class="text-white text-base font-medium leading-normal">$3.50</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Pricing Summary & CTA -->
+<footer class="sticky bottom-0 mt-auto bg-background-light/80 pt-4 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="px-4">
+<div class="flex justify-between gap-x-6 py-2">
+<p class="text-[#92c9a4] text-sm font-normal leading-normal">Subtotal</p>
+<p class="text-white text-sm font-normal leading-normal text-right">$17.00</p>
+</div>
+<div class="flex justify-between gap-x-6 py-2">
+<p class="text-[#92c9a4] text-sm font-normal leading-normal">Tax (10%)</p>
+<p class="text-white text-sm font-normal leading-normal text-right">$1.70</p>
+</div>
+<div class="my-2 h-px bg-white/10"></div>
+<div class="flex justify-between gap-x-6 py-2">
+<p class="text-[#92c9a4] text-base font-bold leading-normal">Total</p>
+<p class="text-white text-base font-bold leading-normal text-right">$18.70</p>
+</div>
+</div>
+<div class="p-4">
+<button class="flex h-14 w-full items-center justify-center rounded-xl bg-primary text-background-dark text-base font-bold leading-normal">
+                    Confirm Order
+                </button>
+</div>
+</footer>
+</div>
+</body></html>

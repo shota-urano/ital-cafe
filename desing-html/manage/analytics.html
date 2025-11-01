@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Admin - Order Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Work Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+      .material-symbols-outlined.fill {
+        font-variation-settings: 'FILL' 1;
+      }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex h-screen w-64 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark sticky top-0">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANG_clriIoTIpckJafAkhZb9W4XEfhwdJtPpJUTUGyxC1-0J3s7qcwGdX22Gr-GPe-I8AHW22T007j3R_sgn5BqAeSKgyC7qxlAALoT8woyj1XYHV0ss7oTCSNOTOEHFwPfUjrflxcDdwjIaj_To5UU0hzeSGIdBe8oQ00CRSfUvOSGvRDRf_gaTa0xx_iwxDh6qVL9q2XoPP48P26Ok_BBWBbZWG_KpC76Eke_Am1hPDatRQrOTcZtDvrVL3RBqDVGxxUR82wsrN-");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-medium leading-normal">Restaurant Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">admin@example.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined fill">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Analytics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<p class="text-sm font-medium leading-normal">Menu</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-8 py-4 bg-white dark:bg-background-dark sticky top-0 z-10">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Order Analytics</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdz9nw5XiPXURaMN0pDZ-XvN5B4k1mB2ZstDPbkyHh66qfHjk9kgC-TAmIDQn20x5Zi0M6kBNVMslKXyfOeik9-biEO_RocyfXeTc_loe30unLrnc8x3qteBKc2uTe68DmuCf0YGzercvjv5V9qGIiTjgF_NN93sRDl4XJIZJG2Ucx1ug0IcSb_SJ0SAEDgL0N_TfOEqK6ahM_HjanFyf7wkxl4BJyiWDCFg28smclfkLy6D6OhkIchOVG4GizHdzrHjTbvpjrv0f5");'></div>
+</div>
+</header>
+<div class="flex-1 p-8">
+<div class="flex flex-col gap-6">
+<!-- Stats -->
+<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">Total Revenue</p>
+<p class="text-slate-900 dark:text-white tracking-light text-3xl font-bold leading-tight">$12,450</p>
+<p class="text-emerald-500 text-sm font-medium leading-normal">+5.2%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">Total Orders</p>
+<p class="text-slate-900 dark:text-white tracking-light text-3xl font-bold leading-tight">830</p>
+<p class="text-emerald-500 text-sm font-medium leading-normal">+2.1%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">Average Order Value</p>
+<p class="text-slate-900 dark:text-white tracking-light text-3xl font-bold leading-tight">$15.00</p>
+<p class="text-emerald-500 text-sm font-medium leading-normal">+0.5%</p>
+</div>
+</div>
+<!-- Toolbar & Chips -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex gap-2 p-1 bg-slate-200 dark:bg-slate-800 rounded-lg">
+<button class="h-8 shrink-0 items-center justify-center gap-x-2 rounded-md bg-white dark:bg-slate-700 px-4 text-slate-900 dark:text-white text-sm font-medium leading-normal shadow-sm">All</button>
+<button class="h-8 shrink-0 items-center justify-center gap-x-2 rounded-md px-4 text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal hover:bg-white/50 dark:hover:bg-slate-700/50">Single</button>
+<button class="h-8 shrink-0 items-center justify-center gap-x-2 rounded-md px-4 text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal hover:bg-white/50 dark:hover:bg-slate-700/50">Set</button>
+</div>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4">
+<span class="material-symbols-outlined fill text-lg">download</span>
+<span class="truncate">Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Charts -->
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+<div class="lg:col-span-2 flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white">Daily Revenue</h3>
+<div class="w-full h-80 flex items-center justify-center bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+<!-- Placeholder for Line Chart -->
+<img alt="A line chart showing daily revenue trends over the last 30 days." class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXc-_UOVp59RQ-9xeKORr4-FVZ9qDaluk41KDOkG1VwK2ZQu8xJe9i0W_b23f6x3NQLUKrbN1ICchmSBqi0kLiGOnJck-Dgq8yZk99ex3MDZgxnoTNSIru-dJ6wlg9U-KShjv6vwfs_aoDUHLzqkNbAQTZjQQXei0JspSQAHBIkll-3UOwki7MAtD3R6Ox6SVygJUSZ7-69Sy0Dh6QsdlohqzML8r4DXrx-5MIJs0abh7sc8z2N0Pz6Xx68_CEMsbRCRtUmngT9usg"/>
+</div>
+</div>
+<div class="lg:col-span-1 flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white">Sales by Category</h3>
+<div class="w-full h-80 flex items-center justify-center bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+<!-- Placeholder for Pie Chart -->
+<img alt="A pie chart showing sales distribution by category: Main Courses, Appetizers, Desserts, and Beverages." class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUpU5JiRW9UU5sRrgCRE_9PxtrDkW6iVUQ19CvtleBDChX1x-3oxNZ-sHdi_qD5mTrQSnecW-hTTr8UgVI_MtybSG0v9moc1fFVHkis3LIzxDtN5yJ2DuYBSVkLRc3HUTO6pnvtFaJXj0e9jYla6lJn9AkxmcD-CSDy1fFDABVj_OWjtHMOhAJfTtcYVISBnxkqzISIPk5wlavXUTBZhO-gL2vyVo2aOXxBHDIh52UbwbpGEg1blDAA7ABHooY9JQHVzuuryotcLdp"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

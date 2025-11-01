@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Admin - Product Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6", 
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#1F2937", 
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex h-screen w-64 flex-col border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Restaurant logo with an abstract fork and knife" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDspdY3MtAS888k_-gJCRftrcVVjvG4atNpUwOBIgrAXje5mz6vgMdIi_w50wNqXiBZAWj1eWQWnE09urhy72SLeR27FrWbgnk9a57bcb6PLwQnxwgJXGMKwg3VmXOamB9eFiWq2G3EZmq6rgADvtyak9IlAWUSvNdJfQn_2qB3IIKBlgIybiPS-_EYRf-kXE5ele8q5lUejvq35DtIwpfTzxZKM9YMkg9cnX5trFZR4nzpwmzfEEeZll8qlpBALw1kE60jwlSaKysi");'></div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-white text-base font-bold leading-normal">Restaurant Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Management Panel</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<p class="text-sm font-bold leading-normal">Products</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Analytics</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-6 py-4 sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Product Management</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex cursor-pointer items-center justify-center rounded-full size-10 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar of a person with short brown hair" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDeohG_ud4o8s-LRvA0vJXmc5LfKmC8iTcsTZz8dfJy_3bs4lQh52iKPUVsYp3ofryczMiTNwQ9SAYo35ld75rVbopG9i25tAFQ9zKr5tEDA9kFIMOjfZoKaWwnTf6AF0ahTXsPyClqzl1anvPPiHvZAYkn1xxU3IvhtHbwMygT9_5oOXKlcCaKzX0-RvGHeruYit6orTzW8rOqGlw33hdE3CD289qAcnUokPZdu74RhYdR6WXmo4voe3FgdOkaOYfFtrikKm5DrxD-");'></div>
+</div>
+</header>
+<div class="p-6 flex-1">
+<div class="flex justify-end mb-6">
+<!-- SingleButton -->
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-700">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add New Product</span>
+</button>
+</div>
+<!-- Table -->
+<div class="w-full bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
+<tr>
+<th class="px-6 py-3 w-20" scope="col">Image</th>
+<th class="px-6 py-3 min-w-[200px]" scope="col">Product Name</th>
+<th class="px-6 py-3" scope="col">Category</th>
+<th class="px-6 py-3" scope="col">Price</th>
+<th class="px-6 py-3" scope="col">Type</th>
+<th class="px-6 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-12" data-alt="Margherita Pizza on a wooden board" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBgz6Gqt5lXnt0BcJlZaKS4XTFYd-YN_gIMdrRfeFv04z5c30rtucEDesIsxVOOpevJP014JXNqoJRIK3EIZ8JlQn-Cy4-Cs6oNnCFegSw2ZJqKGPG5Ggu9td6MIOhv-9CNFs2RBM9umfvut4U0DjoxJdG75ZMGl8dxH91pJ60hSqMNAtNvj5jB9HrU-wb8HJbaj22CIzxlEnlYk9TsooyzeVuVefBn6afmdHEMJL8kEmD4Qy2sPei9Oi9hU5YUz-oieO3c7NYrRbc");'></div>
+</td>
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">Margherita Pizza</td>
+<td class="px-6 py-4">Main Course</td>
+<td class="px-6 py-4">$12.50</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">Single</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="text-primary hover:underline font-medium">Edit</button>
+<button class="text-red-500 hover:underline font-medium">Delete</button>
+</div>
+</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-12" data-alt="Caesar Salad in a white bowl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3x4Q899-kkvSNljG1R6_z-j2nMH_nH0UdGKb4eSEP_x2MC2xppzVv6-8tsAAv8iGdcSLHHz_f4fwk_znpTYcTBnIrlPA0iIby_E0pvJhxLaCX_n3D_Y2t_c6IxTF2_8p42VITFCtwBgjMbtp-ytOe0u-Z4uMFbKwvmOE7v_wW3le1rXxjQVZ29va2OyJwiGt6dUE8-LLPRV9F1vamZc7HR8A_eLCOVU5aWNn5wdPQ_3t_43F9N7kLTK1Ta8zHfl_27AMRZNA930J_");'></div>
+</td>
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">Caesar Salad</td>
+<td class="px-6 py-4">Appetizer</td>
+<td class="px-6 py-4">$8.00</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">Single</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="text-primary hover:underline font-medium">Edit</button>
+<button class="text-red-500 hover:underline font-medium">Delete</button>
+</div>
+</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-12" data-alt="Lunch special set with multiple dishes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjYbDbIWkwgM1EbufX5qGAqy5Hix6miIBn-VzXodumDuMQx8Qt-9YD1vAoSz1PdZkdVdWupt-9HKNmuRo2GKC4YjVWpHe2bw1MdLm3KCv77ZvyT7W1NJyzgOZRLdGq9Htnc9k6zC8fVuhIYzQTnlBiuZzyRFfwZw6_T_I9gjJqJScqOw6-17EnnmhO-ShhD_2TzSJKv_n_tK4SkNfXq59z8RdT0GlBaivbguKQN-QomFD-iOtpYtFLlxHYIRLsj7NudZuK_lZSZveA");'></div>
+</td>
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">Lunch Special Set</td>
+<td class="px-6 py-4">Sets</td>
+<td class="px-6 py-4 font-semibold text-gray-700 dark:text-gray-300">Set Price: $15.00</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Set</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="text-primary hover:underline font-medium">Edit</button>
+<button class="text-red-500 hover:underline font-medium">Delete</button>
+</div>
+</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-12" data-alt="A glass of cola with ice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA49KIeSvToOmKCJqK6X4GrJV2ta0DkNLu87Ne7wamiGQv09HmjJtraxygYw8LaK8CAUHqDvj88XcnUSSWjgzsF7kEfKgx1p2axwTQugdzfKHpKZuexwqNOjFvrYy5MVeBUZdi5GfXAHTdPsOuTFf4G2u6Jgi1uw-cTeMqcrqeLnTS_y-iCoeEe-lmYsWPEns0N5QMOTIvIP-tK-V35VOovQSVz4M0RQXHA8S7DYUfABjtpS3xog34nSeJmCviy6e4zHPJjaOmXKH6m");'></div>
+</td>
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">Cola</td>
+<td class="px-6 py-4">Drinks</td>
+<td class="px-6 py-4">$2.50</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">Single</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="text-primary hover:underline font-medium">Edit</button>
+<button class="text-red-500 hover:underline font-medium">Delete</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center pt-6">
+<a class="flex size-10 items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full" href="#">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</a>
+<a class="text-sm font-bold flex size-10 items-center justify-center text-white rounded-full bg-primary" href="#">1</a>
+<a class="text-sm font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full" href="#">2</a>
+<a class="text-sm font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full" href="#">3</a>
+<span class="text-sm font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full">...</span>
+<a class="text-sm font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full" href="#">10</a>
+<a class="flex size-10 items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full" href="#">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</a>
+</div>
+</div>
+</main>
+</div>
+</body></html>

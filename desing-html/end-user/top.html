@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cafe Order Top Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col font-display group/design-root overflow-x-hidden text-stone-800 dark:text-stone-200">
+<!-- Top App Bar -->
+<header class="flex items-center p-4">
+<div class="flex size-12 shrink-0 items-center justify-start text-stone-800 dark:text-white">
+<span class="material-symbols-outlined text-3xl">eco</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Forest Cafe</h2>
+<div class="flex w-12 items-center justify-end">
+<p class="text-[#92c9a4] text-base font-bold leading-normal tracking-[0.015em] shrink-0 whitespace-nowrap">Table 12</p>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex flex-col flex-1 px-4">
+<!-- Headline -->
+<h1 class="text-stone-900 dark:text-white tracking-light text-[32px] font-bold leading-tight text-left pb-3 pt-6">Today's Recommendation</h1>
+<!-- Recommendation Card -->
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-background-light/80 dark:bg-[#193322] shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-t-xl" data-alt="A warm latte with berry foam art in a ceramic mug, placed on a wooden table with some green leaves." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDupRjuhe7n6E4GhLHvvt_RrR2kbq0CiuykyiQKIgkAkdSkXDPq4nh5LC0_41XcD0TX8fC083VU_SvdovLdKbduyuMrV6VAzYTBKeLkEyqsAsS9AEAxkLgu6KWuM06UZ_vT03PhIAx62hjcfFsP0NPr4pLPcHB4yIWKIIoSndwWYKj7Xxoo3KluAL3SkTPC1DAf2vjXZw0sygjW6BhTzno9gP8fk0RGb71iRR2aWr2a9lvCMu4V_emhp7yDrUm6AEK6XCxQkVGcqv4Y");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-2 p-4">
+<p class="text-stone-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Forest Berry Latte</p>
+<div class="flex items-start gap-3 justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-[#92c9a4] text-base font-normal leading-normal">Made with locally sourced berries and organic oat milk, a perfect refreshing treat.</p>
+</div>
+<p class="text-primary text-lg font-bold leading-tight tracking-[-0.015em]">¥650</p>
+</div>
+</div>
+</div>
+<!-- Spacer -->
+<div class="flex-grow"></div>
+<!-- Button Group -->
+<div class="flex flex-1 gap-3 flex-col items-stretch py-8">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-primary text-background-dark text-base font-bold leading-normal tracking-[0.015em] w-full shadow-lg shadow-primary/20">
+<span class="truncate">Order Now → /menu</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-transparent text-stone-700 dark:text-white text-base font-bold leading-normal tracking-[0.015em] w-full">
+<span class="truncate">View All</span>
+</button>
+</div>
+</main>
+<!-- Footer Banner -->
+<footer class="sticky bottom-0 mt-auto bg-stone-200/80 dark:bg-stone-900/80 backdrop-blur-sm">
+<p class="text-stone-700 dark:text-stone-300 text-base font-normal leading-normal py-4 px-4 text-center">ご注文後はレジにお越しください</p>
+</footer>
+</div>
+</body></html>

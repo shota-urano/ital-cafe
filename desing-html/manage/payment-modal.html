@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Admin - Payment Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#3B82F6",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Work Sans", "Noto Sans", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+</head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex min-h-screen">
+<aside class="flex w-64 flex-col border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Restaurant logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCh4UsGzlQRhKj0ivYg89j6adrO721YLrKBT7vsFnnCKQWVI9iYKuYdGW74Ef4Xmea_yP9CK-vZSa6Ldet3ijokjMKnGJvJvGrEoUE5EvZfnfCDMJnMMhKO-0JKPlIv7D8nu6J_7mb_qsCgit5eJR2LtBSHGjxGzgnJwuW8z2QDKcq8rkHvZSCgE4gTUd57WwG7otPywITC-Kdf4K-Lpd7ORGidueSU2cvYVcZb1k76euuMAJk-HXk6nUy0HoxbtByS0KFiLhd5CRq7");'></div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-gray-100 text-base font-medium leading-normal">Restaurant Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Management Panel</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">dashboard</span>
+<p class="text-sm font-medium leading-normal">ダッシュボード</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">receipt_long</span>
+<p class="text-sm font-medium leading-normal">注文一覧</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-300" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+<p class="text-primary dark:text-primary-300 text-sm font-medium leading-normal">支払い管理</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">restaurant_menu</span>
+<p class="text-sm font-medium leading-normal">メニュー設定</p>
+</a>
+</nav>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<main class="flex-1 flex flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark px-10 py-4 sticky top-0 z-10">
+<h2 class="text-gray-900 dark:text-gray-100 text-lg font-bold leading-tight tracking-[-0.015em]">支払い管理</h2>
+<div class="flex items-center gap-4">
+<button class="relative text-gray-600 dark:text-gray-400">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-primary ring-2 ring-white dark:ring-background-dark"></span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOGPOJYXMPOC2nTBYvmsvyXMuLpO65C-Y5huvBXaIfaqpk_T5IRSRplzto4Tl6ikaFprFtJCwM1gUtEe0ZYCNYHzEi3i9SG0m2b3HvxcOa8x_5yWV9B0YkLVC7_xCOhVox2ylLY5Fnjm_I-BkcbRKZ24R_NlR-110qUn1HFozFOogT5U6h0YSySqubrnPP4RVKPjYAPQa8opJYWak8-iOjcctXoXxGDJ09SZxr4U7-TjrYCiGy1uHu3t8Ea7Mtcbpi8pSrjrExqZOq");'></div>
+</div>
+</header>
+<div class="flex-1 p-8">
+<h2 class="text-gray-900 dark:text-gray-100 text-[22px] font-bold leading-tight tracking-[-0.015em] mb-6">未払い伝票</h2>
+<div class="overflow-x-auto">
+<div class="inline-block min-w-full align-middle">
+<div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<thead class="bg-gray-50 dark:bg-gray-800">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">テーブル番号</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">合計金額</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">経過時間</th>
+<th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">アクション</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Table 5</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">¥8,500</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">25分</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-bold">会計</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Table 2</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">¥12,300</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">45分</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-bold">会計</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Table 8</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">¥4,200</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">15分</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-bold">会計</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div class="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"></div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+<div class="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-xl shadow-2xl flex flex-col">
+<div class="flex items-start justify-between p-6 border-b border-gray-200 dark:border-gray-700 rounded-t-xl">
+<p class="text-gray-900 dark:text-white text-2xl font-bold leading-tight">テーブル 5 の会計</p>
+<button class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-6 space-y-8">
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<div class="space-y-3 text-sm">
+<div class="flex justify-between items-center text-gray-600 dark:text-gray-300">
+<span>小計</span>
+<span>¥7,727</span>
+</div>
+<div class="flex justify-between items-center text-gray-600 dark:text-gray-300">
+<span>消費税 (10%)</span>
+<span>¥773</span>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-600 my-2"></div>
+<div class="flex justify-between items-center text-gray-900 dark:text-white font-bold text-lg">
+<span>合計</span>
+<span>¥8,500</span>
+</div>
+</div>
+</div>
+<div>
+<div class="border-b border-gray-200 dark:border-gray-700">
+<nav aria-label="Tabs" class="-mb-px flex space-x-6">
+<a class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-primary text-primary" href="#">Individual Checkout</a>
+<a class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600" href="#">Split Evenly</a>
+</nav>
+</div>
+</div>
+<div class="space-y-4">
+<p class="text-sm font-medium text-gray-700 dark:text-gray-300">支払い対象の項目を選択してください</p>
+<div class="divide-y divide-gray-200 dark:divide-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg">
+<div class="p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-offset-gray-900" type="checkbox"/>
+<div class="text-sm">
+<p class="font-medium text-gray-900 dark:text-white">生ビール</p>
+<p class="text-gray-500 dark:text-gray-400">x 2</p>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-900 dark:text-white">¥1,200</span>
+</div>
+<div class="p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-offset-gray-900" type="checkbox"/>
+<div class="text-sm">
+<p class="font-medium text-gray-900 dark:text-white">唐揚げ</p>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-900 dark:text-white">¥680</span>
+</div>
+<div class="p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<input checked="" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-offset-gray-900" type="checkbox"/>
+<div class="text-sm">
+<p class="font-medium text-gray-900 dark:text-white">ディナーセットA</p>
+<p class="text-gray-500 dark:text-gray-400">サラダ、スープ付き</p>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-900 dark:text-white">¥2,500</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700 rounded-b-xl">
+<button class="px-5 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">Cancel</button>
+<button class="px-5 py-2.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700">支払済にする</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

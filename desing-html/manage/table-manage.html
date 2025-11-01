@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Admin - Table Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#3B82F6",
+            "background-light": "#F9FAFB",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Work Sans", "Noto Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+    .material-symbols-outlined.fill {
+        font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .toggle-checkbox:checked {
+        right: 0;
+        border-color: #3B82F6;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+        background-color: #3B82F6;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex h-full grow">
+<!-- SideNavBar -->
+<aside class="flex-shrink-0 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col">
+<div class="flex flex-col gap-4 p-4 h-full">
+<div class="flex gap-3 items-center px-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Restaurant Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBj_j_Rr4MeoVSgOnBa4dpUhqGfG06rk4uk3ycMo0B4HqRj30D9rxDWnXjbq9c-h33zNV-_MNDIKxoGNrEorKPzIFwiKiSksgf_sYOHkOIXQ8ZtJ1tpJxjeP8ZgtvA6RZMSeQJUNUQP5LiRDnYbUy05QCsXOA6h1P5BgerjKDnsfC4vm09ee11AjoDSjD75loGYkXGC6uABsJB5kRnjcfTb3eA5a90ZfHAJZomUZhMIHUf-Slh2vMNExN4SRZbzEIQjvwMA4wQUaEk4");'></div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-white text-base font-bold leading-normal">Restaurant Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Main Menu</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<p class="text-sm font-medium leading-normal">Menu</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined fill">table_restaurant</span>
+<p class="text-sm font-medium leading-normal">Table Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Log Out</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex-shrink-0 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-6 py-4 sticky top-0 z-10">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">テーブル設定</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<button class="flex items-center justify-center rounded-full size-10 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-full size-10 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBcakG48JDjSWpGHcqwKVlbmpBLuZ8B15qfyZZHrRrhrDh0NTVod0YLfevN_AlVyhdmCMFcuwM9sDNiWQnmvYpCOy27d6yPvgUzbho3B-1YN0jV77-fAKnV_gxWLk8r21A81Cv12QNtDWCoy4tPAHWTjr0EOPg_pGjk0eL_vMt7YatxJ-wbdmhQ3H3kahDYgMfonPWcP-RqHnn0ooCGjRGuwScY6HxJCyG4drmNdikD9WE31jj5Fob9QJZkYw5PB1hPohOyhmAA0ewY");'></div>
+</div>
+</header>
+<div class="flex-1 p-6 lg:p-8">
+<div class="layout-content-container flex flex-col max-w-7xl mx-auto flex-1">
+<!-- SectionHeader & Action Button -->
+<div class="flex items-center justify-between pb-4">
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">テーブル一覧</h2>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white gap-2 pl-3 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-600 dark:hover:bg-blue-500">
+<span class="material-symbols-outlined text-xl">add</span>
+<span class="truncate">テーブルを追加</span>
+</button>
+</div>
+<!-- Table -->
+<div class="w-full @container">
+<div class="flex overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+<table class="w-full">
+<thead class="bg-gray-50 dark:bg-gray-800">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Table No.</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Seats</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">QR Code</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+<th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Table 1</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">4席</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap">
+<div class="bg-center bg-no-repeat w-10 h-10 bg-contain" data-alt="QR code for Table 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuUY3sUeh8lPsO9d2-AKvGfhC67ZntOlNaAya5Z26wTzP_S1TWpF8p9PI-gQcBJypHGaU5e-eEf_PNHYNq-1L3cp14xzxbpalqF5EQSnCsiqeBChWWDJONbRFNPCC2vGmanb3vEOy3sh4NR8Q97BhvnmAfBGST8M5MIhlRuwrWjbodEI5bG25SPaHK8mwlZjbyvWbluGZXrKuX8PtA_yXLfwpIS6E3PqUTGPhHrG6IuIGbLhOVFtmii58bvE5qWTYLVTTGznnyaxo-");'></div>
+</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap">
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer" id="toggle1" name="toggle1" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="toggle1"></label>
+</div>
+</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<a class="text-primary hover:text-blue-700 dark:hover:text-blue-400" href="#">QR再発行</a>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Table 2</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">2席</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap">
+<div class="bg-center bg-no-repeat w-10 h-10 bg-contain" data-alt="QR code for Table 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZm6rtozto6IdzJcm2CILRt2C9uQh2q8NBSy0u9MV3SpHyQ1crXmHKQxv6wCt9y5ggk3f-CuIFS8tJWSJYqwiajskWZ2YVQJaTRM2HVfY_YxUkOGMt_LqqKTdcCccCd1xVlP-S_LbsAyO0P5Qj1XxFefwuddc5D3QqRCizorVyVAYffv_BT7kRqwLwW-6QMmb4gtMBqWscwSVb0EwU5_SY7lTtB48Sc_WEniug0QIQGwe-_8IEqqlQmjNQc_0l8tSkMqTUERQoQs_s");'></div>
+</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap">
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer" id="toggle2" name="toggle2" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="toggle2"></label>
+</div>
+</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<a class="text-primary hover:text-blue-700 dark:hover:text-blue-400" href="#">QR再発行</a>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Table 3</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">6席</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap">
+<div class="bg-center bg-no-repeat w-10 h-10 bg-contain" data-alt="QR code for Table 3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWQnRksPVO6hPiExsgsuutYAGhJSX_iq3b-lCYzWL44rwrVz-vU_ivqD-uorhneNSzLIzpDd5yORCeniVQ8cvlq36rgAEo1Rha83rQ59LZgyAFMSzTH9lIBQqbp3-JpV7upwi5BRUrxdBLd0W9CEXd3S4CRZcc8tYR2hqKB0PjVlNyKzOHfssBszxUUy_nxt947-CQmiUZftlFdj5SS2z6lk1F3R0GgDX5Pvp3tfbmNzSSb-M6RXFb-QNtw0UyYfAkQKM-EMJDz3L1");'></div>
+</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap">
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer" id="toggle3" name="toggle3" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="toggle3"></label>
+</div>
+</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<a class="text-gray-400 cursor-not-allowed" href="#">QR再発行</a>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Table 4</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">4席</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap">
+<div class="bg-center bg-no-repeat w-10 h-10 bg-contain" data-alt="QR code for Table 4" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBGwmaoQfgA9Kr0na-dWdRJXOzDRMFFKTofAlViYV5P7GCXHqRoYJ86fmwpnNHWCvbDufgGyGJwhjAVKcmYuLzRDqjcWagKQmwS8xEViMMOY75Je7_nPzVvwN8UpxO3O1MpybXiUh1Dw8QMX_4788CBPa5k1BMfCa_A8wDtY4YXF0_LNM45QfsxVwC03Ti2rztgcvEykbGjan71TgpS0L3z3UxeRApwC_4Uj1bvYvJjbk-X0rci8GxYHJ-6wJuWw3aOVZ4TXmN7VzVu");'></div>
+</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap">
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer" id="toggle4" name="toggle4" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="toggle4"></label>
+</div>
+</td>
+<td class="h-[72px] px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<a class="text-primary hover:text-blue-700 dark:hover:text-blue-400" href="#">QR再発行</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

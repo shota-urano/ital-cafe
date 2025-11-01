@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Toppings Management - Restaurant Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "card-light": "#ffffff",
+                        "card-dark": "#182431",
+                        "text-light-primary": "#111418",
+                        "text-dark-primary": "#f6f7f8",
+                        "text-light-secondary": "#617589",
+                        "text-dark-secondary": "#a0b1c2",
+                        "border-light": "#e3e8ee",
+                        "border-dark": "#2b3a4a",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light-primary dark:text-text-dark-primary">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark hidden md:flex flex-col">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-3 py-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Restaurant logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2-pDphbpACgr3YfLaBJ304iC5P33Oe8YZeEWT7p2k3HrrgnyKREyBvgQ20ABDkp3x0hof7doCQ-3AWpDXWX4QpBSJxP2iwvvT5c156IYfoXuG4xs53-vQsZtTd4y1qJ_zxUfO1iBMnVkG4bni4fwmHhO6VyD6qF0qYImFFcATNTfeXCSLWm4Yz5qIvEbsCBfmZlHmsh18Xx_l6RYWBoC4zrcthAodTiJd7q34JM6-vrt73wOTLo34_qseY5BAcU276lqU9LcdoiWq");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-light-primary dark:text-text-dark-primary text-base font-semibold leading-normal">Restaurant Admin</h1>
+<p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">Main Menu</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<p class="text-sm font-medium leading-normal">Menu</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined">eco</span>
+<p class="text-sm font-medium leading-normal">Toppings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<p class="text-sm font-medium leading-normal">Help Center</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 lg:px-10 py-3 h-16 bg-card-light dark:bg-card-dark">
+<div class="flex items-center gap-4 text-text-light-primary dark:text-text-dark-primary">
+<span class="material-symbols-outlined md:hidden">menu</span>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Toppings Management</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<button class="p-2 rounded-full hover:bg-background-light dark:hover:bg-background-dark text-text-light-secondary dark:text-text-dark-secondary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCF9BxBLypzXReTUPVWaf7ah8kqKq9yYSogIRDNbIZLkRm_L1EZrKWM5IO-ffvZPUd23qumwQTjA9tYU5TyzsR5y4NPjj8XCIVuuvsf-Au8J4Y0vI34oONvwWi8qBHzYyS3w7RtzN15i-wfMeSUAm-o3T2P1fNjQBSAZsqzoNP7HqInl1y4NtBJRJHCwpMOtKVsEaVXOOXXnXtgqZ1S9zDBj_XO422AgmtMC5EljqWNUoGiCgToNCTFnf76tXqn8PG_fBbo5rPGr-v3");'></div>
+</div>
+</header>
+<!-- Main area -->
+<main class="flex-1 overflow-x-hidden overflow-y-auto bg-background-light dark:bg-background-dark p-6 lg:p-10">
+<div class="w-full max-w-7xl mx-auto">
+<!-- ToolBar & SearchBar -->
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-border-light dark:border-border-dark">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-1">
+<label class="flex flex-col w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-12">
+<div class="text-text-light-secondary dark:text-text-dark-secondary flex bg-background-light dark:bg-background-dark items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-background-light dark:bg-background-dark h-full placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary px-4 rounded-l-none pl-2 text-base font-normal leading-normal" placeholder="Search toppings..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-background-dark pl-4 pr-2 border border-border-light dark:border-border-dark text-text-light-secondary dark:text-text-dark-secondary hover:border-primary/50">
+<p class="text-sm font-medium leading-normal">All Categories</p>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<button class="flex max-w-sm cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add Topping</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="mt-6 bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="border-b border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/50 text-text-light-secondary dark:text-text-dark-secondary uppercase tracking-wider font-medium">
+<tr>
+<th class="px-6 py-4 w-16" scope="col">Image</th>
+<th class="px-6 py-4" scope="col">Name</th>
+<th class="px-6 py-4" scope="col">Category</th>
+<th class="px-6 py-4" scope="col">Price</th>
+<th class="px-6 py-4" scope="col">Status</th>
+<th class="px-6 py-4 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<!-- Table Row 1 -->
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50">
+<td class="px-6 py-4">
+<div class="size-10 rounded-lg bg-cover bg-center" data-alt="Sliced tomatoes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPvEpgcLIiOkjAltLBC6rCS6yfCg86ltWvNsZME_972l4Npc9Mj6qRpri2jvnPdYVdI02J0b9xUdgkUN38y2yyETOwZjQLmnqDr9R2bXdnFNjJ4_QvEOwt2iN-JkuHAezt0E69npon-xpJiaEv4tiGOqQwEJxntV3Z7Y4cssQAnmGllwaFw1-BtNRD3BppwHxVBGfLmMIYS_niOJw5FTqEleYLfJlRbm4Gg6KQPgSd6OdtA0Aw-_8ES4jgAP3jVRn64bQgjyQL6cY9')"></div>
+</td>
+<td class="px-6 py-4 font-medium text-text-light-primary dark:text-text-dark-primary">Tomatoes</td>
+<td class="px-6 py-4 text-text-light-secondary dark:text-text-dark-secondary">Veggies</td>
+<td class="px-6 py-4 text-text-light-secondary dark:text-text-dark-secondary">$0.75</td>
+<td class="px-6 py-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer peer-focus:ring-2 peer-focus:ring-primary/50 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+</label>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-primary/10 text-text-light-secondary dark:text-text-dark-secondary hover:text-primary"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-red-500/10 text-text-light-secondary dark:text-text-dark-secondary hover:text-red-500"><span class="material-symbols-outlined text-base">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Table Row 2 -->
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50">
+<td class="px-6 py-4">
+<div class="size-10 rounded-lg bg-cover bg-center flex items-center justify-center bg-background-light dark:bg-background-dark text-text-light-secondary dark:text-text-dark-secondary">
+<span class="material-symbols-outlined">image_not_supported</span>
+</div>
+</td>
+<td class="px-6 py-4 font-medium text-text-light-primary dark:text-text-dark-primary">Mozzarella</td>
+<td class="px-6 py-4 text-text-light-secondary dark:text-text-dark-secondary">Cheese</td>
+<td class="px-6 py-4 text-text-light-secondary dark:text-text-dark-secondary">$1.50</td>
+<td class="px-6 py-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer peer-focus:ring-2 peer-focus:ring-primary/50 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+</label>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-primary/10 text-text-light-secondary dark:text-text-dark-secondary hover:text-primary"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-red-500/10 text-text-light-secondary dark:text-text-dark-secondary hover:text-red-500"><span class="material-symbols-outlined text-base">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Table Row 3 -->
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50">
+<td class="px-6 py-4">
+<div class="size-10 rounded-lg bg-cover bg-center" data-alt="Pepperoni slices" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1WnGqjr5jBOLPKAkqPfv2bSZnuIHyLHSeFxROXFM0lJGBNqjicN-j7v6swvT8rzGBi2s9tOhN05viD3EjEuRCI4b2EJgN3l71-3ErKBlTnb_4HFbpaGQctN8-0Q_QTEm-n7GmRIVBKpAP6JlTKJqsDWDgt95FgkWoMlTVuM2j1yLS0endcdTUR6xD6Oe30SzuGAI7rUIS6HMoHosLtDeatYnv7BxAeNzSHUwfJeBw3oNF7DMC3R95Hs9oiWjKvdcB7Mxd3dFFSIW1')"></div>
+</td>
+<td class="px-6 py-4 font-medium text-text-light-primary dark:text-text-dark-primary">Pepperoni</td>
+<td class="px-6 py-4 text-text-light-secondary dark:text-text-dark-secondary">Meat</td>
+<td class="px-6 py-4 text-text-light-secondary dark:text-text-dark-secondary">$2.00</td>
+<td class="px-6 py-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer peer-focus:ring-2 peer-focus:ring-primary/50 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+</label>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-primary/10 text-text-light-secondary dark:text-text-dark-secondary hover:text-primary"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-red-500/10 text-text-light-secondary dark:text-text-dark-secondary hover:text-red-500"><span class="material-symbols-outlined text-base">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Empty State Example -->
+<!--
+                            <div class="text-center p-12">
+                                <span class="material-symbols-outlined text-6xl text-text-light-secondary/50 dark:text-text-dark-secondary/50">eco</span>
+                                <h3 class="mt-4 text-lg font-semibold text-text-light-primary dark:text-text-dark-primary">No toppings found</h3>
+                                <p class="mt-1 text-sm text-text-light-secondary dark:text-text-dark-secondary">Get started by adding your first topping.</p>
+                                <button class="mt-6 flex max-w-sm cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4 hover:bg-primary/90 transition-colors mx-auto">
+                                    <span class="material-symbols-outlined text-base">add</span>
+                                    <span class="truncate">Add Topping</span>
+                                </button>
+                            </div>
+                            -->
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between p-4 border-t border-border-light dark:border-border-dark">
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Showing 1 to 3 of 15 results</p>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 text-sm rounded-md border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark hover:bg-background-light dark:hover:bg-background-dark">Previous</button>
+<button class="px-3 py-1.5 text-sm rounded-md border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark hover:bg-background-light dark:hover:bg-background-dark">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Admin - Tax Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Work Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex flex-row min-h-screen">
+<!-- SideNavBar -->
+<aside class="flex-shrink-0 w-64 bg-white dark:bg-background-dark border-r border-gray-200 dark:border-gray-800 flex flex-col">
+<div class="flex flex-col gap-4 p-4">
+<div class="flex gap-3 items-center px-3 py-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Restaurant logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOu2etx3o7MCjf9NYVTyHKZdl3wDdDD_7Bv6tvySje3uH8trl7pmbiBOo5nclkV5O1TZ3rDaRhSfilhiIGq6sRsW2MHrA1y0Q_7pAfZUajh3QhtLxCm52isFnvJEWPMWWu_FcvJwbdgbpkqA25EjvOGDHI2znfo3MuP2RzvXnf-qLQEQjZiEt8v6928pLxBkrJ_1S3bhFSUI1xEh1d92bQ33P0bQ-Z7WKT39cvKJiMR4gwXHEF-hOb5-XaGP4-krhufJZ8b0mRDU6V");'></div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-white text-base font-bold leading-normal">Restaurant Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Main Menu</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<p class="text-sm font-medium leading-normal">Menu</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary" href="#">
+<span class="material-symbols-outlined fill">percent</span>
+<p class="text-sm font-medium leading-normal">Tax Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 px-10 py-3 bg-white dark:bg-background-dark sticky top-0 z-10">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Tax Settings / 税率設定</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmpX2AnYO3pmY61c0-Gmz2XRZUOrle1biWxX0koAh1Fogji0c9gDHkt0E8sQqyebiP4yt0E9pTmA_Aw7bdwbCPP8H8kvGB9k0oBvu3_vV0FC7TPCkZUEk6UzfiMV2JHd9IqFXcBprT8Clm9iWJS2RQ9mNqo03atim-AMIIa_4hFUfKqPatl6m7CK-UMOmOmNUKvJtcbpn_clO1I1N_fhqBqFmam5X69h-iiJK4XYeCQLLzfwdHfbhhj3seDKbL5CCjvEqVPB5Yv8ym");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-6 lg:p-10">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 mb-8">
+<p class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Tax Settings</p>
+</div>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Card A: Current Tax Rate -->
+<div class="bg-white dark:bg-gray-900/50 rounded-xl shadow-sm p-6 flex flex-col">
+<!-- SectionHeader -->
+<h2 class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] pb-5">現在の税率 (Current Tax Rate)</h2>
+<!-- TextField -->
+<div class="flex flex-col gap-2">
+<label class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal" for="tax-rate">Tax Rate (%)</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-gray-500 p-4 text-base font-normal leading-normal" id="tax-rate" value="10.00"/>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">This rate is applied to all new orders.</p>
+</div>
+<div class="mt-auto pt-6 flex justify-end">
+<button class="flex items-center justify-center rounded-lg h-12 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] px-6 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50">
+<span>保存 (Save)</span>
+</button>
+</div>
+</div>
+<!-- Card B: Upcoming Reservations -->
+<div class="bg-white dark:bg-gray-900/50 rounded-xl shadow-sm p-6 flex flex-col">
+<div class="flex justify-between items-center pb-5">
+<h2 class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">予約中の税率 (Reserved Tax Rates)</h2>
+<button class="flex items-center justify-center rounded-lg h-10 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary gap-2 text-sm font-bold leading-normal tracking-[0.015em] px-4 hover:bg-primary/20 dark:hover:bg-primary/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50">
+<span class="material-symbols-outlined" style="font-size: 20px;">add_circle</span>
+<span>新しい税率を予約</span>
+</button>
+</div>
+<div class="flex-1">
+<div class="space-y-4">
+<!-- Reservation Item 1 -->
+<div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div>
+<p class="text-base font-medium text-gray-800 dark:text-gray-200">2024年10月1日</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Effective Date</p>
+</div>
+<div>
+<p class="text-lg font-bold text-gray-900 dark:text-white">12.00 %</p>
+</div>
+</div>
+<!-- Reservation Item 2 -->
+<div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div>
+<p class="text-base font-medium text-gray-800 dark:text-gray-200">2025年4月1日</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Effective Date</p>
+</div>
+<div>
+<p class="text-lg font-bold text-gray-900 dark:text-white">15.00 %</p>
+</div>
+</div>
+<!-- Empty State (example)
+                                    <div class="text-center py-10 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg">
+                                        <span class="material-symbols-outlined text-gray-400 dark:text-gray-500" style="font-size: 48px;">event_busy</span>
+                                        <p class="mt-2 text-gray-600 dark:text-gray-400 font-medium">No upcoming tax rate changes are scheduled.</p>
+                                    </div>
+                                    -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
