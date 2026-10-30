@@ -1,0 +1,27 @@
+name: ci
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: 1.2.22
+      - name: backend
+        working-directory: backend
+        run: |
+          bun install --frozen-lockfile
+          bunx prisma generate
+          bunx tsc --noEmit
+          bunx vitest run --passWithNoTests
+      - name: frontend
+        working-directory: frontend
+        run: |
+          bun install --frozen-lockfile
+          bunx tsc --noEmit
